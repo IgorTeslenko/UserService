@@ -1,4 +1,4 @@
-package ru.myproj.userservice.exceptions;
+package ru.myproj.userservice.exception;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(String message) {

@@ -1,11 +1,11 @@
-package ru.myproj.userservice.controllers;
+package ru.myproj.userservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.myproj.userservice.models.User;
-import ru.myproj.userservice.models.dtos.UserDto;
-import ru.myproj.userservice.services.UserService;
+import ru.myproj.userservice.model.User;
+import ru.myproj.userservice.model.dto.UserDTO;
+import ru.myproj.userservice.service.UserService;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -19,7 +19,7 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User addUser(@RequestBody UserDto userDto) {
+    public User addUser(@RequestBody UserDTO userDto) {
         return userService.addUser(userDto);
     }
 
@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @PutMapping
-    public User updateUser(@RequestBody UserDto userDto) {
+    public User updateUser(@RequestBody UserDTO userDto) {
         return userService.updateUser(userDto);
     }
 

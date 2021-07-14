@@ -1,4 +1,4 @@
-package ru.myproj.userservice.models;
+package ru.myproj.userservice.model;
 
 import lombok.Data;
 import lombok.NonNull;
