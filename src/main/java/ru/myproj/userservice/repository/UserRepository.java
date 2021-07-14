@@ -1,7 +1,7 @@
-package ru.myproj.userservice.repos;
+package ru.myproj.userservice.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import ru.myproj.userservice.models.User;
+import ru.myproj.userservice.model.User;
 
 import java.math.BigInteger;
 
