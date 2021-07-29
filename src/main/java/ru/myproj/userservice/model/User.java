@@ -14,13 +14,13 @@ import java.math.BigInteger;
 public class User {
 
     @Id
-    private BigInteger id;
+    protected BigInteger id;
 
     @NonNull
-    private String username;
+    protected String username;
 
     @NonNull
-    private String password;
+    protected String password;
 }
 
 

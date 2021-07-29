@@ -17,10 +17,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @Deprecated
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User addUser(@RequestBody UserDTO userDto) {
-        return userService.addUser(userDto);
+    public User createUser(@RequestBody UserDTO userDto) {
+        return userService.createUser(userDto);
     }
 
     @GetMapping

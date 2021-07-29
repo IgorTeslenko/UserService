@@ -18,8 +18,12 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User addUser(UserDTO userDto) {
+    public User createUser(UserDTO userDto) {
         return userRepository.save(new User(userDto.getUsername(), userDto.getPassword()));
+    }
+
+    public boolean userExist(String username) {
+        return userRepository.existsByUsername(username);
     }
 
     public List<User> findAll() {
@@ -35,7 +39,7 @@ public class UserService {
         try {
             user = findById(userDTO.getId());
         } catch (UserNotFoundException e) {
-            return addUser(userDTO);
+            return createUser(userDTO);
         }
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
