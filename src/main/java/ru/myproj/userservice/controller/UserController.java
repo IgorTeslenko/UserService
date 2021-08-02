@@ -29,23 +29,31 @@ public class UserController {
         return userService.findAll();
     }
 
+    @GetMapping("/personal")
+    public String returnPersonalInfo() {
+        return "personal info";
+    }
+
     @GetMapping("/{userId}")
     public User findById(@PathVariable BigInteger userId) {
         return userService.findById(userId);
     }
 
     @PutMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public User updateUser(@RequestBody UserDTO userDto) {
         return userService.updateUser(userDto);
     }
 
     @DeleteMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUserById(@RequestParam BigInteger userId) {
         userService.deleteUserById(userId);
     }
 
     //для отладки, чтобы быстро базу очищать
     @DeleteMapping("/flush_all")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAllUsers() {
         userService.deleteAllUsers();
     }
