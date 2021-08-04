@@ -2,6 +2,7 @@ package ru.myproj.userservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.myproj.userservice.model.User;
 import ru.myproj.userservice.model.dto.UserDTO;
@@ -16,13 +17,6 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-
-    @Deprecated
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestBody UserDTO userDto) {
-        return userService.createUser(userDto);
-    }
 
     @GetMapping
     public List<User> showAllUsers() {
@@ -41,7 +35,7 @@ public class UserController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public User updateUser(@RequestBody UserDTO userDto) {
+    public ResponseEntity<?> updateUser(@RequestBody UserDTO userDto) {
         return userService.updateUser(userDto);
     }
 
